@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Home</title>
+{% endblock%}
+
+
+{% block content %}
+<div class="container">
+    <h6>Page: {{ wiki_page }}</h6>
+    {% if wiki_images %}
+    {% for image in wiki_images %}
+    <img src="{{ image }}" alt="Wikipedia Image">
+    {% endfor %}
+    {% endif %}
+    {{ wiki_page_html|safe|escape }}
+    {{ wiki_page_content }}
+    <br>
+    <h1>{{ wiki_page_sections }}</h1>
+    <h1>Hip Hop Productions</h1>
+    <h1>{{ wiki_page_title }}</h1>
+    <h6>Summary: {{ wiki_page_summary }}</h6>
+    <h1>Search Results for {{ wiki_page_title }}</h1>
+    {% for search in wiki_page_search %}
+        <h6><a href="https://en.wikipedia.org/wiki/{{wiki_page_search}}">{{ search }}</a></h6>
+    {% endfor %}
+    <h6>Page: {{ wiki_page }}</h6>
+    <h6>Title: {{ wiki_page_title }}</h6>
+    <h6>Links</h6>
+    {% for link in wiki_page_links %}
+        <a href="https://en.wikipedia.org/wiki/{{link}}">{{ link }}</a><br>
+    {% endfor %}
+</div>
+{% endblock %}
