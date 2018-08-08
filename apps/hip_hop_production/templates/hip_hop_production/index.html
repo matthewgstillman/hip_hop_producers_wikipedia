@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Home</title>
+{% endblock%}
+
+
+{% block content %}
+<div class="container">
+    <h6>Page: {{ murda_beatz_page }}</h6>
+    {{ real_page_html.title|safe|escape }}
+    {{ real_page_content }}
+    <br>
+    <h1>Response: {{response}}</h1>
+    <h1>Index: {{index}}</h1>
+    <h1>{{ murda_beatz_sections }}</h1>
+    <h1>Hip Hop Productions</h1>
+    <h1>Murda Beatz</h1>
+    <h6>Summary: {{ murda_beatz_summary }}</h6>
+    <h1>Search Results for Murda Beatz</h1>
+    {% for search in murda_search %}
+        <h6><a href="https://en.wikipedia.org/wiki/{{murda_search}}">{{ search }}</a></h6>
+    {% endfor %}
+    <h6>Page: {{ murda_beatz_page }}</h6>
+    <h6>Title: {{ murda_beatz_title }}</h6>
+    <h6>Links</h6>
+    {% for link in murda_beatz_links %}
+        <a href="https://en.wikipedia.org/wiki/{{link}}">{{ link }}</a><br>
+    {% endfor %}
+</div>
+{% endblock %}
